@@ -16,9 +16,20 @@ composer require "twig/twig:^2.0"
 php bin/console debug:twig
 
 #ORM composer req orm
+ composer require symfony/orm-pack
 
 #symfony maker-bundle 
-composer req maker-bundle --dev
+composer require --dev symfony/maker-bundle
+
+php bin/console doctrine:database:create
+
+**Fixtures**
+`composer req --dev make doctrine/doctrine-fixtures-bundle`
+
+`Faker` 
+`https://blog.dev-web.io/2018/01/20/symfony-4-creation-de-fixtures-aleatoires-faker/`
+**composer req --dev fzaninotto/faker**
+
 
 #easy_admin 
 composer req admin

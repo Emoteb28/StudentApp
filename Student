@@ -1,0 +1,19 @@
+birthdate date
+gender bool
+matricule int
+nationality string
+address string
+name string
+surname string
+created_at date
+telephone int
+postalcode
+email
+
+13 et 45
+For et add flash
+
+Twitter bootstrap
+Method fluent, ne rien renvoyer
+
+https://docs.oracle.com/cd/E56917_01/cs9pbr4/eng/cs/lssr/task_StudentRecordReturnStudentEntity-3f7fdb.html#topofpage

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Student index{% endblock %}
+
+{% block body %}
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.flashes('info') %}
+        <div class="alert alert-success">
+            Message flash : {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+
+        <h1>Student index</h1>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Matricule</th>
+                <th>Nationality</th>
+                <th>Address</th>
+                <th>Telephone</th>
+                <th>email</th>
+                <th>bithdate</th>
+                {#<th>Profile</th>#}
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.id }}</td>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.surname }}</td>
+                    <td>{{ student.matricule }}</td>
+                    <td>{{ student.nationality }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>{{ student.telephone }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.birthdate  ?  student.birthdate|date('Y-m-d') : ''  }}</td>
+                    {# <td>{{ student.createdAt ? student.createdAt|date('Y-m-d H:i:s') : '' }}</td>#}
+                    {# <td>{{ student.profile }}</td>#}
+                    <td>
+                        <a href="{{ path('student_show', {'id': student.id}) }}" class="btn btn-primary">show</a>
+                        <a href="{{ path('student_edit', {'id': student.id}) }}" class="btn btn-success  m-2" >edit</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="12">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+<a href="{{ path('student_new') }}">Create new</a>
+{% endblock %}
