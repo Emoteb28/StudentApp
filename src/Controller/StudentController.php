@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Student;
 use App\Form\StudentType;
 use App\Repository\StudentRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,12 +17,27 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class StudentController extends AbstractController
 {
+
+    /**
+     * @var EntityManagerInterface
+     */
+    private $manager;
+
+    private $repository;
+
+    public function __construct(StudentRepository $repository, EntityManagerInterface $manager)
+    {
+        $this->manager = $manager;
+        $this->repository = $repository;
+    }
+
     /**
      * @Route("/", name="student_index", methods={"GET"})
-     * @param StudentRepository $studentRepository
+     * @param PaginatorInterface $paginator
+     * @param Request $request
      * @return Response
      */
-    public function index(StudentRepository $studentRepository): Response
+    public function index(PaginatorInterface $paginator, Request $request): Response
     {
         /*$student = new Student();
         $student->setName('Issiaka');
@@ -38,10 +55,15 @@ class StudentController extends AbstractController
 $manager = $this->getDoctrine()->getManager();
         $manager->persist($student);
 $manager->flush();*/
+        $students = $paginator->paginate(
+            $this->repository->findStudentList(),
+             $request->query->getInt('page', 1), /*page number*/
+        10 /*limit per page*/
+        ) ;
 
 
         return $this->render('student/index.html.twig', [
-            'students' => $studentRepository->findAll(),
+            'students' => $students
         ]);
     }
 
@@ -52,14 +74,14 @@ $manager->flush();*/
      */
     public function new(Request $request): Response
     {
+        $this->addFlash('info', 'Annonce bien créé');
         $student = new Student();
         $form = $this->createForm(StudentType::class, $student);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($student);
-            $entityManager->flush();
+            $this->manager->persist($student);
+            $this->manager->flush();
 
             return $this->redirectToRoute('student_index');
         }
@@ -94,7 +116,8 @@ $manager->flush();*/
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('info', 'Annonce bien modifiée');
+            $this->manager->flush();
 
             return $this->redirectToRoute('student_index');
         }
@@ -113,14 +136,33 @@ $manager->flush();*/
      */
     public function delete(Request $request, Student $student): Response
     {
-        $this->addFlash('info', 'Annonce bien enregistrée');
+        $this->addFlash('info', 'Annonce bien suppriméé');
 
         if ($this->isCsrfTokenValid('delete'.$student->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($student);
-            $entityManager->flush();
+            $this->manager->remove($student);
+            $this->manager->flush();
         }
 
         return $this->redirectToRoute('student_index');
+    }
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @return Response
+     */
+    public function error($id, Request $request)
+    {
+        // On crée la réponse sans lui donner de contenu pour le moment
+        $response = new Response();
+
+        // On définit le contenu
+        $response->setContent("Ceci est une page d'erreur 404");
+
+        // On définit le code HTTP à « Not Found » (erreur 404)
+        $response->setStatusCode(Response::HTTP_NOT_FOUND);
+
+        // On retourne la réponse
+        return $response;
     }
 }

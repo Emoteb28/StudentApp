@@ -5,6 +5,8 @@ namespace App\Repository;
 use App\Entity\Student;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Student|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,6 +21,46 @@ class StudentRepository extends ServiceEntityRepository
         parent::__construct($registry, Student::class);
     }
 
+
+    /**
+     * @return array
+     */
+    public function findByGender(): array
+    {
+        return $this->findVisibleQueries('Mlle')
+            ->setMaxResults(100)
+            ->getQuery()
+            ->getResult();
+    }
+    /**
+     * @return array
+     */
+    public function findStudentList(): array
+    {
+        return $this->builder()
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    private function builder(): QueryBuilder
+    {
+        return $this->createQueryBuilder('p');
+    }
+
+    /**
+     * @param $value
+     * @return QueryBuilder
+     * Select by something
+     */
+    private function findVisibleQueries($value): QueryBuilder
+    {
+
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.gender = :val')
+            ->setParameter('val', $value)
+            ->orderBy('s.id', 'ASC');
+    }
     // /**
     //  * @return Student[] Returns an array of Student objects
     //  */

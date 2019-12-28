@@ -39,3 +39,6 @@ composer require --dev symfony/profiler-pack
 
 #sécurité 
  composer require sensiolabs/security-checker
+
+
+php bin/console config:dump-reference security

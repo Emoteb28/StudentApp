@@ -2,33 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fc93990b-d9e6-445b-a076-81d033c5e5c8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Student" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/doctrine_migrations.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/StudentController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Student.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/StudentType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191227215958.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191227222645.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191227222956.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191227223448.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/StudentRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/home/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/student/_delete_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/student/_form.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/student/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/student/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/student/new.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/student/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/knp_paginator.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFixtures/UserFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/security/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Skeleton.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Skeleton.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -36,10 +13,14 @@
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/StudentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/StudentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StudentRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StudentRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/student/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/student/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +66,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="studentapp: schema" type="76f4a085:MysqlImplModel$Schema" />
         <item name="student: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="studentapp@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="studentapp: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="user: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -190,6 +178,8 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
+      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1VZn9fXIIQR0wdG8YbH2payhSte" />
@@ -218,7 +208,17 @@
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:studentapp@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="root:studentapp@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@7dcf640a" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -238,8 +238,16 @@
       <workItem from="1577469335491" duration="882000" />
       <workItem from="1577470286733" duration="606000" />
       <workItem from="1577471470951" duration="21005000" />
-      <workItem from="1577493587908" duration="671000" />
+      <workItem from="1577493587908" duration="19284000" />
     </task>
+    <task id="LOCAL-00001" summary="crud-bootsrapp-flash">
+      <created>1577494347462</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577494347462</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,11 +268,37 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="crud-bootsrapp-flash" />
+    <option name="LAST_COMMIT_MESSAGE" value="crud-bootsrapp-flash" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="469" y="56" width="412" height="624" key="#com.intellij.ide.util.MemberChooser" timestamp="1577536688089">
+      <screen x="0" y="27" width="1360" height="684" />
+    </state>
+    <state x="469" y="56" width="412" height="624" key="#com.intellij.ide.util.MemberChooser/0.27.1360.684@0.27.1360.684" timestamp="1577536688089" />
+    <state x="245" y="27" width="860" height="684" key="CommitChangelistDialog2" timestamp="1577494347216">
+      <screen x="0" y="27" width="1360" height="684" />
+    </state>
+    <state x="245" y="27" width="860" height="684" key="CommitChangelistDialog2/0.27.1360.684@0.27.1360.684" timestamp="1577494347216" />
+    <state x="418" y="181" width="513" height="373" key="NewPhpClassDialog" timestamp="1577544863302">
+      <screen x="0" y="27" width="1360" height="684" />
+    </state>
+    <state x="418" y="181" width="513" height="373" key="NewPhpClassDialog/0.27.1360.684@0.27.1360.684" timestamp="1577544863302" />
+    <state x="275" y="105" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1577494367279">
+      <screen x="0" y="27" width="1360" height="684" />
+    </state>
+    <state x="275" y="105" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1360.684@0.27.1360.684" timestamp="1577494367279" />
     <state x="336" y="196" key="com.intellij.ide.util.TipDialog" timestamp="1577493587854">
       <screen x="0" y="27" width="1360" height="684" />
     </state>
     <state x="336" y="196" key="com.intellij.ide.util.TipDialog/0.27.1360.684@0.27.1360.684" timestamp="1577493587854" />
+    <state x="397" y="27" width="556" height="684" key="refactoring.ChangeSignatureDialog" timestamp="1577543284604">
+      <screen x="0" y="27" width="1360" height="684" />
+    </state>
+    <state x="397" y="27" width="556" height="684" key="refactoring.ChangeSignatureDialog/0.27.1360.684@0.27.1360.684" timestamp="1577543284604" />
+    <state x="344" y="161" key="run.anything.popup" timestamp="1577542111957">
+      <screen x="0" y="27" width="1360" height="684" />
+    </state>
+    <state x="344" y="161" key="run.anything.popup/0.27.1360.684@0.27.1360.684" timestamp="1577542111957" />
   </component>
 </project>

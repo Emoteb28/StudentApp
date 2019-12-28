@@ -6,9 +6,16 @@
     <div>
         {# On affiche tous les messages flash dont le nom est « info » #}
         {% for message in app.flashes('info') %}
-        <div class="alert alert-success">
-            Message flash : {{ message }}
-        </div>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Message flash :</strong> {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+
+
         {% endfor %}
     </div>
     <div class="row">
@@ -59,4 +66,8 @@
     </div>
 
 <a href="{{ path('student_new') }}">Create new</a>
+
+    <div class="pagination">
+        {{ knp_pagination_render(students) }}
+    </div>
 {% endblock %}
